@@ -7,13 +7,15 @@ function calculateRentalCost(days) {
   const COST_PER_DAY = 40;
   const LONG_TERM_DISCOUNT = 50;
   const MID_TERM_DISCOUNT = 20;
+  const SHORT_TERM_RENTAL_THRESHOLD = 3;
+  const LONG_TERM_RENTAL_THRESHOLD = 7;
   const total = days * COST_PER_DAY;
 
-  if (days > 6) {
+  if (days >= LONG_TERM_RENTAL_THRESHOLD) {
     return total - LONG_TERM_DISCOUNT;
   }
 
-  if (days > 2) {
+  if (days >= SHORT_TERM_RENTAL_THRESHOLD) {
     return total - MID_TERM_DISCOUNT;
   }
 
